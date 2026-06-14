@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Pressable, SafeAreaView, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Icon from './src/icon';
 import {
@@ -13,6 +13,7 @@ import Onboarding from './src/screens/Onboarding';
 import Today from './src/screens/Today';
 import Progress from './src/screens/Progress';
 import Settings from './src/screens/Settings';
+import Account from './src/screens/Account';
 import { AddSheet, ScanModal, ExerciseSheet, QuickAddSheet, DrinksSheet, Paywall } from './src/screens/Modals';
 
 function Main() {
@@ -24,6 +25,7 @@ function Main() {
   const [exOpen, setExOpen] = useState(false);
   const [quickOpen, setQuickOpen] = useState(false);
   const [drinkOpen, setDrinkOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
   const [paywallOpen, setPaywallOpen] = useState(false);
 
   if (!state.onboarded) {
@@ -57,6 +59,11 @@ function Main() {
             </View>
             <Pressable style={s.chip} onPress={() => setTab('settings')}>
               <Icon name="settings" size={15} color={tab === 'settings' ? C.orange : C.muted} />
+            </Pressable>
+            <Pressable style={s.avatarChip} onPress={() => setAccountOpen(true)}>
+              {state.avatar
+                ? <Image source={{ uri: state.avatar }} style={s.avatarImg} />
+                : <Icon name="account" size={20} color={C.muted} />}
             </Pressable>
           </View>
         </View>
@@ -97,6 +104,7 @@ function Main() {
       <ExerciseSheet visible={exOpen} onClose={() => setExOpen(false)} />
       <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} />
       <DrinksSheet visible={drinkOpen} onClose={() => setDrinkOpen(false)} />
+      <Account visible={accountOpen} onClose={() => setAccountOpen(false)} />
       <Paywall visible={paywallOpen} onClose={() => setPaywallOpen(false)} />
       <ToastHost />
     </View>
@@ -131,6 +139,12 @@ const s = StyleSheet.create({
     paddingHorizontal: 13, paddingVertical: 9, borderRadius: 99,
   },
   chipTxt: { color: C.text, fontFamily: F.extra, fontSize: 14 },
+  avatarChip: {
+    width: 36, height: 36, borderRadius: 18, overflow: 'hidden',
+    backgroundColor: C.card, borderWidth: 1, borderColor: C.line,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  avatarImg: { width: 36, height: 36, borderRadius: 18 },
   tabbar: {
     position: 'absolute', bottom: 0, left: 0, right: 0,
     flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-end',

@@ -29,6 +29,8 @@ const MAP = {
   quickadd: 'lightning-bolt',
   // settings rows and paywall
   sparkles: 'creation',
+  account: 'account-circle',
+  camera2: 'camera',
   fav: 'heart',
   'fav-off': 'heart-outline',
   check: 'check-circle',

@@ -35,6 +35,7 @@ const DEFAULTS = {
   steps: {},      // { '2026-06-12': { count, kcal } }
   weights: [],    // [{ date, kg }]
   pro: false,
+  avatar: null,    // profile photo, base64 data url
   favorites: [],   // saved recipes
   water: {},       // { '2026-06-14': ml }
   scan: { date: '', count: 0 },
