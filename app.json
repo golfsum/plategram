@@ -1,17 +1,25 @@
 {
   "expo": {
-    "name": "macrolens-app",
-    "slug": "macrolens-app",
+    "name": "Plategram",
+    "slug": "plategram",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0b0b11",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.nd82soft.plategram",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Plategram uses the camera to take a photo of your meal so it can estimate the calories.",
+        "NSPhotoLibraryUsageDescription": "Plategram needs photo access so you can pick a meal photo from your library.",
+        "NSMotionUsageDescription": "Plategram reads your step count to estimate calories burned from walking."
+      }
     },
     "android": {
+      "package": "com.nd82soft.plategram",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#001f20",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -19,6 +27,36 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Plategram uses the camera to take a photo of your meal so it can estimate the calories.",
+          "photosPermission": "Plategram needs photo access so you can pick a meal photo from your library."
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Plategram reads your step count to estimate calories burned from walking."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 210,
+          "resizeMode": "contain",
+          "backgroundColor": "#001f20",
+          "dark": {
+            "image": "./assets/splash-icon.png",
+            "backgroundColor": "#001f20"
+          }
+        }
+      ],
+      "@react-native-google-signin/google-signin"
+    ]
   }
 }

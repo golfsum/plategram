@@ -1,12 +1,26 @@
 {
-  "name": "macrolens-app",
+  "name": "plategram",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "expo": "~56.0.11",
-    "expo-status-bar": "~56.0.4",
-    "react": "19.2.3",
-    "react-native": "0.85.3"
+    "@expo-google-fonts/manrope": "^0.4.2",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-google-signin/google-signin": "^16.1.2",
+    "expo": "^54.0.35",
+    "expo-apple-authentication": "~8.0.8",
+    "expo-crypto": "~15.0.9",
+    "expo-dev-client": "~6.0.21",
+    "expo-font": "~14.0.12",
+    "expo-image-manipulator": "~14.0.8",
+    "expo-image-picker": "~17.0.11",
+    "expo-sensors": "~15.0.8",
+    "expo-splash-screen": "~31.0.13",
+    "expo-status-bar": "~3.0.9",
+    "firebase": "^12.14.0",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-svg": "15.12.1"
   },
   "scripts": {
     "start": "expo start",
@@ -14,5 +28,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "sharp": "^0.35.1"
+  }
 }
